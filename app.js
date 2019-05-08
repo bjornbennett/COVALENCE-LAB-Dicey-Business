@@ -28,11 +28,6 @@ document.addEventListener('DOMContentLoaded', function(){
     createBtn('Clear All', 'clear-die', 'sync', 4); 
     disableBtns();
 
-    document.querySelector('#dice-announcement').addEventListener('click',function(){
-        // this.classList = "";
-        cl('this');
-    });
-
     // create button function
     function createBtn(btnText, btnId, btnIcon, btnReact){
         let btn = document.createElement('button'),
@@ -81,7 +76,20 @@ document.addEventListener('DOMContentLoaded', function(){
                     // cl(this);
                 });
                 newDiv.addEventListener('dblclick', function(){
-                    dblClickDiv();
+                    newDiv.style.opacity = 0;
+
+                    let diceContainer = document.querySelector('#dice-container').textContent.length;
+                    if(diceContainer - 1 == '0'){
+                        disableBtns();
+                        cl(diceContainer);
+                    }
+                    setTimeout(function(){
+                        newDiv.style.opacity = 1;
+                        newDiv.classList = 'smoke';
+                    }, 200);
+                    setTimeout(function(){
+                        newDiv.remove();
+                    }, 700);
                     hideSumBlock();
                 });
 
@@ -156,22 +164,6 @@ document.addEventListener('DOMContentLoaded', function(){
         function hideSumBlock(){
             let targetParent = document.querySelector('#dice-announcement');
                 targetParent.className = '';
-        }
-        function dblClickDiv(){
-            newDiv.style.opacity = 0;
-
-            let diceContainer = document.querySelector('#dice-container').textContent.length;
-            if(diceContainer - 1 == '0'){
-                disableBtns();
-                cl(diceContainer);
-            }
-            setTimeout(function(){
-                newDiv.style.opacity = 1;
-                newDiv.classList = 'smoke';
-            }, 200);
-            setTimeout(function(){
-                newDiv.remove();
-            }, 700);
         }
     }
     function disableBtns(){
