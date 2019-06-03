@@ -12,10 +12,10 @@ class Die{
 }
 
 // DOM
-document.addEventListener('DOMContentLoaded', function(){
+document.addEventListener('DOMContentLoaded', ()=>{
 
     // testing testing
-    const cl = console.log;
+    // const cl = console.log;
 
     // set targets
     const divTarget = document.getElementById('dice-container');
@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function(){
             
             // add click event
             target.addEventListener('click', function(){
-                cl('New Die Created!');
+                // cl('New Die Created!');
                 
                 let btnArray = document.querySelectorAll('button');
                 btnArray.forEach(element => {
@@ -76,12 +76,13 @@ document.addEventListener('DOMContentLoaded', function(){
                     // cl(this);
                 });
                 newDiv.addEventListener('dblclick', function(){
+                    document.querySelector('body').classList.add('overflow-hidden');
                     newDiv.style.opacity = 0;
 
                     let diceContainer = document.querySelector('#dice-container').textContent.length;
                     if(diceContainer - 1 == '0'){
                         disableBtns();
-                        cl(diceContainer);
+                        // cl(diceContainer);
                     }
                     setTimeout(function(){
                         newDiv.style.opacity = 1;
@@ -89,6 +90,7 @@ document.addEventListener('DOMContentLoaded', function(){
                     }, 200);
                     setTimeout(function(){
                         newDiv.remove();
+                        document.querySelector('body').classList = "";
                     }, 700);
                     hideSumBlock();
                 });

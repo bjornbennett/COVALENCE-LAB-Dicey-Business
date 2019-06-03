@@ -6,9 +6,12 @@ body {
     font-family: 'Roboto',helvetica, arial, sans-serif;
     font-size: 16px;
     background: #fff;
-    /* overflow: hidden; */
     line-height: 1;
 }
+body.overflow-hidden {
+    overflow: hidden;
+}
+
 p {
     margin-bottom: 0;
 }
@@ -19,7 +22,7 @@ section:after {
 }
 #logo {
     text-align: center;
-    padding-top: 3em;
+    /* padding-top: 3em; */
     padding-bottom: 0em;
 }
 @media(max-width:768px){
